@@ -18,7 +18,19 @@ const script_options = command_line_args(
     ]
 );
 
+createDirectories();
 
 if (script_options.test) {
     shell.exec('./node_modules/.bin/cucumber-js');
+}
+
+
+function createDirectories() {
+    if (!fs.existsSync(dir_results)) {
+        fs.mkdirSync(dir_results);
+    }
+
+    if (!fs.existsSync(dir_screenshots)) {
+        fs.mkdirSync(dir_screenshots);
+    }
 }

@@ -1,38 +1,46 @@
 const webdriverio               = require('webdriverio');
+const should                    = require('should');
 const { defineSupportCode }     = require('cucumber');
+const page                      = require('../../pages/google_page');
 
 defineSupportCode(function({Given, When, Then}) {
-    // Given('I am on the Cucumber.js GitHub repository', {timeout: 10 * 1000}, function() {
-    //     return this.driver.get('https://github.com/cucumber/cucumber-js/tree/master');
+
+    When('I search for {stringInDoubleQuotes}', function (search_text) {
+        return this
+            .driver
+            .element('#lst-ib')
+            .setValue(search_text)
+            .keys('Enter')
+            .waitForValue('#lst-ib', 10000);
+    });
+
+    // TODO: for POP later
+    // When('I search for {stringInDoubleQuotes}', function (search_text) {
+    //     page.perform_search(this, search_text);
     // });
 
-    Given('I am on {stringInDoubleQuotes}', function (stringInDoubleQuotes) {
-        // Write code here that turns the phrase above into concrete actions
-        // callback(null, 'pending');
-        // return this.driver.init();
-        return 'pending';
+    When('select {stringInDoubleQuotes} in the search results', function (expected_link) {
+        return this
+            .driver
+            .waitForVisible('#ires .g .r a', 10000)
+            .getText('#ires .g .r a')
+            .then(function(results) {
+                for (let i = 0; i < results.length; i++) {
+                    if (results[i].toUpperCase().indexOf(expected_link)) {
+                        return this
+                            .click(`=${results[i]}`);
+                    }
+                }
+            });
     });
 
-    When('I search for {stringInDoubleQuotes}', function (stringInDoubleQuotes, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        // callback(null, 'pending');
-        return 'pending';
+    Then('I am presented with the {stringInDoubleQuotes} homepage', function (expected_url) {
+        return this
+            .driver
+            .getUrl()
+            .then(function(actual_url) {
+                actual_url.should.be.equal(expected_url);
+            });
     });
-
-
-    When('select {stringInDoubleQuotes} in the search results', function (stringInDoubleQuotes, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        // callback(null, 'pending');
-        return 'pending';
-    });
-
-
-    Then('I am presented with the {stringInDoubleQuotes} homepage', function (stringInDoubleQuotes) {
-        // Write code here that turns the phrase above into concrete actions
-        // callback(null, 'pending');
-        return 'pending';
-    });
-
-
 
 });
