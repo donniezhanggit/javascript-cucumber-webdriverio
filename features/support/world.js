@@ -1,36 +1,18 @@
-// const webdriverio               = require('webdriverio');
-// const { defineSupportCode }     = require('cucumber');
-// const devices                   = require('./devices');
+const webdriverio               = require('webdriverio');
+const { defineSupportCode }     = require('cucumber');
 
+// TODO: create device load solution with devices.js
+function CustomWorld() {
+    this.driver = webdriverio.remote( {browserName: 'chrome'} );
 
-// let desiredCapabilities = {
-//     browserName: 'chrome'
-// };
-
-
-// TODO: Make use of CustomWorld and replace generic `World`
-// function CustomWorld() {
-//     console.log('Custom World');
-//     this.driver = webdriverio.remote( {browserName: 'chrome'} ).init();
-// }
-//
-// defineSupportCode(function({setWorldConstructor}) {
-//     setWorldConstructor(CustomWorld);
-// });
-
-// defineSupportCode(function({ setDefaultTimeout }) {
-//     setDefaultTimeout(10 * 1000);
-// });
-
-// // TODO: add other browsers and appium by creating a devices.json solution
-// function getDesiredCapabilities() {
-//     let desiredCapabilities = {
-//         browserName: 'chrome'
-//     };
-// }
-
-
-function World( {attach, parameters }) {
-    attach = attach
-    parameters = parameters
+    // TODO: maybe something like
+    // this.google_page(this.driver);
 }
+
+defineSupportCode(function({setWorldConstructor}) {
+    setWorldConstructor(CustomWorld);
+});
+
+defineSupportCode(function({ setDefaultTimeout }) {
+    setDefaultTimeout(10 * 1000);
+});

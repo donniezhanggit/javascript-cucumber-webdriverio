@@ -4,13 +4,13 @@ const webdriverio           = require('webdriverio');
 
 
 defineSupportCode(function({ After, Before }) {
-    const client = webdriverio.remote({ browserName: 'chrome' });
+    // const client = webdriverio.remote({ browserName: 'chrome' });
 
     Before(function() {
-        return client.init({ browserName: 'chrome' });
+        return this.driver.init({ browserName: 'chrome' });
     });
 
     After(function() {
-        return client.end();
+        return this.driver.end();
     });
 });
