@@ -6,7 +6,6 @@ const webdriverio               = require('webdriverio');
 defineSupportCode(function({ After, Before }) {
 
     Before(function() {
-        // return this.driver.init({ browserName: 'chrome' });
         return this
             .driver
             .init({ browserName: 'chrome' });
@@ -14,9 +13,6 @@ defineSupportCode(function({ After, Before }) {
 
     Before(function() {
         exports.driver = this.driver;
-        // return this
-        //     .driver
-        //     .url('http://www.google.com');
     });
 
     After(function() {
@@ -24,11 +20,5 @@ defineSupportCode(function({ After, Before }) {
             .driver
             .end();
     });
-
-
-    // function driver() {
-    //     console.log('here');
-    //     return this.driver;
-    // }
 
 });

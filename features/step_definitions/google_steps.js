@@ -14,10 +14,10 @@ defineSupportCode(function({Given, When, Then}) {
     //         .waitForValue('#lst-ib', 10000);
     // });
     //
-    // // TODO: for POP later
-    // // When('I search for {stringInDoubleQuotes}', function (search_text) {
-    // //     page.perform_search(this, search_text);
-    // // });
+    // TODO: for POP later
+    When('I search for {stringInDoubleQuotes}', function (search_text) {
+        page.perform_search(search_text);
+    });
     //
     // When('select {stringInDoubleQuotes} in the search results', function (expected_link) {
     //     return this

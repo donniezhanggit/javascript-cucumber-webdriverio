@@ -5,7 +5,7 @@ Feature: Demo
   @C001 @smokeTest @regression
   Scenario: Google Search - Appium
     Given I am on "http://www.google.com"
-#    When I search for "appium"
+    When I search for "appium"
 #    And select "Appium" in the search results
 #    Then I am presented with the "http://appium.io/" homepage
 #
