@@ -1,16 +1,12 @@
-const webdriverio               = require('webdriverio');
 const { defineSupportCode }     = require('cucumber');
+const webdriverio               = require('webdriverio');
 
-// TODO: create device load solution with devices.js
-function CustomWorld() {
+function World() {
     this.driver = webdriverio.remote( {browserName: 'chrome'} );
-
-    // TODO: maybe something like
-    // this.google_page(this.driver);
 }
 
 defineSupportCode(function({setWorldConstructor}) {
-    setWorldConstructor(CustomWorld);
+    setWorldConstructor(World);
 });
 
 defineSupportCode(function({ setDefaultTimeout }) {

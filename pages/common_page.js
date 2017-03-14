@@ -1,9 +1,11 @@
+const hooks = require('../features/support/hooks');
+
 function Page() {
 
 }
 
 Page.prototype.open = function(path) {
-    this.driver.url(path);
+    hooks.driver.url(path);
 };
 
 // current form for POP would need to pass context back and forth
@@ -12,3 +14,13 @@ Page.prototype.open = function(path) {
 // };
 
 module.exports = new Page();
+
+// const common_page = Object.create(hooks, {
+//
+//     open: { value: function(path) {
+//         world.driver.url(path);
+//     }}
+//
+// });
+//
+// module.exports = common_page;

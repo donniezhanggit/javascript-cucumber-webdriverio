@@ -5,15 +5,15 @@ const page                      = require('../../pages/common_page');
 
 defineSupportCode(function({Given, When, Then}) {
 
-    Given('I am on {stringInDoubleQuotes}', function (url) {
-        return this
-            .driver
-            .url(url);
-    });
+    // Given('I am on {stringInDoubleQuotes}', function (url) {
+    //     return this
+    //         .driver
+    //         .url(url);
+    // });
 
     // TODO: for POP later
-    // Given('I am on {stringInDoubleQuotes}', function (url) {
-        // page.open(this, url);
-    // });
+    Given('I am on {stringInDoubleQuotes}', function (url) {
+        page.open(url);
+    });
 
 });
