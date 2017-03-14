@@ -13,6 +13,7 @@
     "test": "node scripts.js --test"
   },
   "devDependencies": {
+    "glob": "7.0.3",
     "appium": "1.6.3",
     "command-line-args": "3.0.2",
     "cucumber": "2.0.0-rc.8",

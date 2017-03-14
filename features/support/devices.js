@@ -1,7 +1,11 @@
 module.exports = {
 
-    // TODO: Make use of file for loading different devices
-    // TODO: Some caps may need changing due to appium / selenium redesigns
+    /*
+    TODO:
+    - make use to load different devices
+    - some caps may need changing due to appium / selenium redesigns
+    */
+
     chrome: {
         browserName: 'chrome'
     },
