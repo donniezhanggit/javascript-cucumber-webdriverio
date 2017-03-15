@@ -1,8 +1,6 @@
 const { defineSupportCode }     = require('cucumber');
 const webdriverio               = require('webdriverio');
 
-// exports.driver = driver;
-
 defineSupportCode(function({ After, Before }) {
 
     Before(function() {

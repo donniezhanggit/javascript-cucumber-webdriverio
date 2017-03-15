@@ -6,7 +6,7 @@ Feature: Demo
   Scenario: Google Search - Appium
     Given I am on "http://www.google.com"
     When I search for "appium"
-#    And select "Appium" in the search results
+    And select "Appium" in the search results
 #    Then I am presented with the "http://appium.io/" homepage
 #
 #  @C002 @regression
