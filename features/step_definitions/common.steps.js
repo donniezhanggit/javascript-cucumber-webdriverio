@@ -9,4 +9,9 @@ defineSupportCode(function({Given, When, Then}) {
         return page.open(url);
     });
 
+
+    Then('I am presented with the {stringInDoubleQuotes} homepage', function (expectedUrl) {
+        return page.checkUrl(expectedUrl);
+    });
+
 });
