@@ -1,12 +1,12 @@
-# cucumberjs-webdriverio
+# javascript-cucumber-webdriverio
 
 **Resources**
 - [Cucumberjs](https://github.com/cucumber/cucumber-js)
 - [WebdriverIO](http://webdriver.io/)
-- [Appium](http://appium.io/)
 
 
 ## Setup
+
 #### Homebrew
 
 Install Homebrew:
@@ -21,52 +21,34 @@ $ brew doctor
 Your system is ready to brew
 ```
 
-#### Node
+#### Install node
 ```
 $ brew install node
 ```
 
-Still in terminal, execute:
+Then,
 ```
 $ node --version
 v6.3.1
 ```
 
 #### Git
-
-Still in terminal, execute:
 ```
 $ brew install git
 ```
 
-After installation, execute:
+Then,
 ```
 $ git --version
 git version 2.9.2
 ```
 
-
-
-#### TODO: clone repo and stuff
-
-Install modules:
+#### Install dependencies
 ````
 $ npm install
 ````
 
-
-#### Selenium
-Install:
+#### Install selenium standalone, start server, and test
 ````
-$ node_modules/selenium-standalone/bin/selenium-standalone install
-````
-
-Start:
-````
-$ node_modules/selenium-standalone/bin/selenium-standalone start
-````
-
-Run:
-````
-$ npm run test
+$ npm test
 ````

@@ -1,36 +1,21 @@
-const commonPage    = require('./common.page');
-const hooks         = require('../features/support/hooks');
+const page    = require('./page');
+const should    = require('should');
 
-const selectors = {
-    searchBox: '#lst-ib',
-    searchResults: '#ires .g .r a'
-};
+const googlePage = Object.create(page, {
 
-const googlePage = Object.create(commonPage, {
+    searchResults: { get: function() { return $$('#ires .g .r a'); } },
+    searchBox: { get: function() { return $('#lst-ib'); } },
 
-    performSearch: { value: function(searchText) {
-        return hooks
-            .driver
-            .setValue(selectors.searchBox, searchText)
-            .waitForValue(selectors.searchBox, 10000)
-            .keys('Enter');
+    searchFor: { value: function(target) {
+        this.searchBox.setValue(target);
+        this.searchBox.addValue("Enter");
     }},
 
-    selectResult: { value: function(expectedLink) {
-        return hooks
-            .driver
-            .waitForVisible(selectors.searchResults, 10000)
-            .getText(selectors.searchResults)
-            .then(function(results) {
-                for (let i = 0; i < results.length; i++) {
-                    if (results[i].toUpperCase().indexOf(expectedLink)) {
-                        return this
-                            .click(`=${results[i]}`);
-                    }
-                }
-            });
-    }}
-
+    select: { value: function(target) {
+        let result = this.searchResults.find((element) => element.getText() == target);
+        should.exist(result, `'${target}' was not in the list of results`);
+        result.click();
+    }},
 });
 
 module.exports = googlePage;

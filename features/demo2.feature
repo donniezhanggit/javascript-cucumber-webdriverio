@@ -1,4 +1,4 @@
-Feature: Demo
+Feature: Demo2
   As a User,
   Google searching should work on all platforms
 
