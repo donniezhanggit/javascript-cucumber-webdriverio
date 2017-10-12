@@ -43,7 +43,7 @@ exports.config = {
         deprecationWarnings: true,
 
         // Level of logging verbosity: silent | verbose | command | data | result | error
-        logLevel: 'error',
+        logLevel: 'verbose',
         coloredLogs: true,
         screenshotPath: 'results/screenshots',
         waitforTimeout: 30000,

@@ -1,7 +1,7 @@
 {
-  "name": "talon-ui-automation",
+  "name": "javascript-cucumber-webdriverio",
   "version": "1.0.0",
-  "description": "Talon ui automation",
+  "description": "javascript cucumber and webdriverio automation template",
   "author": "Steve Momcilovic <steve.momcilovic@gmail.com>",
   "repository": {
     "type": "git"
