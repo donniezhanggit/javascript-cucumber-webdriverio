@@ -16,6 +16,9 @@ exports.config = {
         exclude: [
             
         ],
+
+        services: ['selenium-standalone'],
+        seleniumLogs: './logs/selenium.log',
     
         /**
          * capabilities
