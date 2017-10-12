@@ -8,7 +8,7 @@ exports.config = {
         path: '/wd/hub',
     
         /**
-         * specify test files
+         * specify test test-files
          */
         specs: [
             './features/*.feature'
@@ -16,32 +16,48 @@ exports.config = {
         exclude: [
             
         ],
-
-        services: ['selenium-standalone'],
-        seleniumLogs: './logs/selenium.log',
     
         /**
          * capabilities
          */
         maxInstances: 10,
         capabilities: [
-            { 
+            {
                 // maxInstances: 1,
                 browserName: 'chrome'
-            }
+            },
+            // {
+            //     browserName: 'firefox'
+            // }
         ],
-    
+
+
+
+        services: ['selenium-standalone'],
+        seleniumLogs: './logs/selenium.log',
+
         /**
          * test configurations
          */
         baseUrl: 'http://localhost:8080',
         deprecationWarnings: true,
-        logLevel: 'silent',
+
+        // Level of logging verbosity: silent | verbose | command | data | result | error
+        logLevel: 'error',
         coloredLogs: true,
         screenshotPath: 'results/screenshots',
-        waitforTimeout: 5000,
+        waitforTimeout: 30000,
+
         framework: 'cucumber',
-    
+        cucumberOpts: {
+            timeout: 45000,
+            require: [
+                './features/step_definitions/common.steps.js',
+                './features/step_definitions/google.steps.js'
+            ],
+            ignoreUndefinedDefinitions: true,
+            snippets: true
+        },
         reporters: [
             'spec',
             'json'
@@ -51,23 +67,45 @@ exports.config = {
             combined: true,
             filename: 'wdio-results'
         },
-    
-        cucumberOpts: {
-            timeout: 15000,
-            // format: ['pretty', 'json:results/test-result.json'],
-            require: [
-                './features/step_definitions/common.steps.js',
-                './features/step_definitions/google.steps.js'
-            ],
-            ignoreUndefinedDefinitions: true,
-            snippets: false
+
+        // Gets executed before test execution begins. At this point you can access to all global
+        // variables like `browser`. It is the perfect place to define custom commands.
+        before: function (capabilities, specs) {
+            // throttle
         },
 
+        // Hook that gets executed before the suite starts
+        beforeSuite: function (suite) {
+
+        },
+
+        // Runs before a Cucumber Feature
+        beforeFeature: function (feature) {
+            // throttle - catch @throttled
+        },
+        //
+        // Runs after a Cucumber Feature
+        afterFeature: function (feature) {
+
+        },
+
+        // Runs before each test scenario
         beforeScenario: function (scenario) {
-            console.log('beforeScenario');
+            // browser.url('/');
         },
 
+        // Runs after each test scenario
         afterScenario: function (scenario) {
-            console.log('afterScenario');
+
         },
+
+        // Gets executed after all tests are done. You still have access to all global variables from
+        // the test.
+        // after: function (result, capabilities, specs) {
+        // },
+
+        // Gets executed after all workers got shut down and the process is about to exit.
+        // onComplete: function(exitCode, config, capabilities) {
+        // }
+
     };
