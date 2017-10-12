@@ -7,7 +7,7 @@
     "type": "git"
   },
   "scripts": {
-    "test": "ENVIRONMENT=qa ./node_modules/.bin/wdio wdio.cucumber.conf.js",
+    "test": "./node_modules/.bin/wdio wdio.cucumber.conf.js",
     "report": "node ./node_modules/wdio-junit-to-html/index.js -i ./results -o ./results -s",
     "lint": "sonarlint --src 'src/**' --tests 'test/**'"
   },
