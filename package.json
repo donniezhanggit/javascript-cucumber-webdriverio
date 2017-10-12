@@ -4,8 +4,7 @@
   "description": "Talon ui automation",
   "author": "Steve Momcilovic <steve.momcilovic@gmail.com>",
   "repository": {
-    "type": "git",
-    "url": "http://tctfs05:8080/tfs/Taylor%20Digital/KLIC/_git/talon-ui-automation"
+    "type": "git"
   },
   "scripts": {
     "test": "ENVIRONMENT=qa ./node_modules/.bin/wdio wdio.cucumber.conf.js",
