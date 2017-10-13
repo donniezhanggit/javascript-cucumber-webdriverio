@@ -1,15 +1,13 @@
 exports.config = {
     
-
         /**
          * server configurations
          */
-        host: 'localhost',
+        host: '0.0.0.0',
         // host: '127.0.0.1',
         port: 4444,
         path: '/wd/hub',
     
-
         /**
          * specify test test-files
          */
@@ -20,7 +18,6 @@ exports.config = {
             
         ],
     
-
         /**
          * capabilities
          */
@@ -36,23 +33,23 @@ exports.config = {
         ],
 
 
-        services: ['selenium-standalone'],
-        seleniumLogs: './logs/selenium.log',
 
+        services: [
+            'selenium-standalone'
+        ],
+        seleniumLogs: './logs/selenium.log',
 
         /**
          * test configurations
          */
-        baseUrl: 'http://localhost:8080',
+        // baseUrl: 'http://localhost:8080',
         deprecationWarnings: true,
-
 
         // Level of logging verbosity: silent | verbose | command | data | result | error
         logLevel: 'silent',
         coloredLogs: true,
         screenshotPath: 'results/screenshots',
         waitforTimeout: 30000,
-
 
         framework: 'cucumber',
         cucumberOpts: {
@@ -66,9 +63,13 @@ exports.config = {
         },
         reporters: [
             'spec',
-            'junit'
+            'junit',
+            'allure'
         ],
         reporterOptions: {
+            allure: {
+                outputDir: './results/allure'
+            },
             junit: {
                 outputDir: './results/'
             }

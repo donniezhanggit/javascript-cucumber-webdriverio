@@ -6,13 +6,16 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                checkout scm
                 sh 'npm install'
                 sh 'npm test'
             }
             post {
                 always {
                     junit 'results/*.xml'
+                    allure includeProperties: false, 
+                    jdk: '', 
+                    properties: [[key: 'variant', value: '${VARIANT}']], 
+                    results: [[path: './results/allure/']]
                 }
             }
         }
