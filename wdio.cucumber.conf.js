@@ -49,11 +49,11 @@ exports.config = {
         logLevel: 'silent',
         coloredLogs: true,
         screenshotPath: 'results/screenshots',
-        waitforTimeout: 30000,
+        waitforTimeout: 20000,
 
         framework: 'cucumber',
         cucumberOpts: {
-            timeout: 45000,
+            timeout: 15000,
             require: [
                 './features/step_definitions/common.steps.js',
                 './features/step_definitions/google.steps.js'
