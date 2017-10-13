@@ -8,6 +8,8 @@ pipeline {
             steps {
                 sh 'npm install'
                 sh 'npm test'
+            }
+            steps {
                 sh 'npm run report'
             }
             post {
