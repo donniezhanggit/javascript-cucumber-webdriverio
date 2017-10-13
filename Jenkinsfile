@@ -9,16 +9,17 @@ pipeline {
                 sh 'npm test'
             }
         }
-        stage('Report') {
-            steps {
-                sh 'npm run report'
-            }
-        }
+        // stage('Report') {
+        //     steps {
+        //         sh 'npm run report'
+        //     }
+        // }
     }
     post {
         always {
             junit 'results/*.xml'
 
+            sh 'npm run report'
 
             publishHTML([
                 allowMissing: false, 
