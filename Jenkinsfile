@@ -23,7 +23,7 @@ pipeline {
 
             publishHTML([
                 allowMissing: false, 
-                alwaysLinkToLastBuild: false, 
+                alwaysLinkToLastBuild: true, 
                 keepAll: false, 
                 reportDir: './allure-report/', 
                 reportFiles: 'index.html', 
