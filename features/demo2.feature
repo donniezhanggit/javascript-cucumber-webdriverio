@@ -1,6 +1,4 @@
-Feature: Demo2
-  As a User,
-  Google searching should work on all platforms
+Feature: blaaah
 
   @C001 @smokeTest @regression
   Scenario: Google Search - Appium

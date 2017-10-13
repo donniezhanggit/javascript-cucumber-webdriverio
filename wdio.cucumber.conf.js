@@ -1,12 +1,15 @@
 exports.config = {
     
+
         /**
          * server configurations
          */
-        host: '0.0.0.0',
+        host: 'localhost',
+        // host: '127.0.0.1',
         port: 4444,
         path: '/wd/hub',
     
+
         /**
          * specify test test-files
          */
@@ -17,6 +20,7 @@ exports.config = {
             
         ],
     
+
         /**
          * capabilities
          */
@@ -32,9 +36,9 @@ exports.config = {
         ],
 
 
-
         services: ['selenium-standalone'],
         seleniumLogs: './logs/selenium.log',
+
 
         /**
          * test configurations
@@ -42,11 +46,13 @@ exports.config = {
         baseUrl: 'http://localhost:8080',
         deprecationWarnings: true,
 
+
         // Level of logging verbosity: silent | verbose | command | data | result | error
-        logLevel: 'verbose',
+        logLevel: 'silent',
         coloredLogs: true,
         screenshotPath: 'results/screenshots',
         waitforTimeout: 30000,
+
 
         framework: 'cucumber',
         cucumberOpts: {
@@ -60,13 +66,14 @@ exports.config = {
         },
         reporters: [
             'spec',
-            'json'
+            'junit'
         ],
         reporterOptions: {
-            outputDir: './results/',
-            combined: true,
-            filename: 'wdio-results'
+            junit: {
+                outputDir: './results/'
+            }
         },
+
 
         // Gets executed before test execution begins. At this point you can access to all global
         // variables like `browser`. It is the perfect place to define custom commands.
