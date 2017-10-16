@@ -3,8 +3,8 @@ exports.config = {
         /**
          * server configurations
          */
-        // host: '0.0.0.0',
-        host: '127.0.0.1',
+        host: '0.0.0.0',
+        // host: '127.0.0.1',
         port: 4444,
         path: '/wd/hub',
     
