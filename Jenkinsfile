@@ -21,7 +21,8 @@ pipeline {
                 keepAll: true, 
                 reportDir: './allure-report/', 
                 reportFiles: 'index.html', 
-                reportName: 'HTML Report'
+                reportName: 'HTML Report',
+                 reportTitles: ''
             ])
         }
     }
