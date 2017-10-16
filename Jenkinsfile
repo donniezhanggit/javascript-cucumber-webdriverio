@@ -17,12 +17,11 @@ pipeline {
 
             publishHTML([
                 allowMissing: false, 
-                alwaysLinkToLastBuild: true, 
-                keepAll: false, 
+                alwaysLinkToLastBuild: false, 
+                keepAll: true, 
                 reportDir: './allure-report/', 
                 reportFiles: 'index.html', 
-                reportName: 'HTML Report', 
-                reportTitles: ''
+                reportName: 'HTML Report'
             ])
         }
     }
