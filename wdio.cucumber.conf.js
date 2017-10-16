@@ -3,7 +3,7 @@ exports.config = {
         /**
          * server configurations
          */
-        host: '0.0.0.0',
+        // host: '0.0.0.0',
         // host: '127.0.0.1',
         port: 4444,
         path: '/wd/hub',
@@ -49,11 +49,11 @@ exports.config = {
         logLevel: 'silent',
         coloredLogs: true,
         screenshotPath: 'results/screenshots',
-        waitforTimeout: 15000,
+        waitforTimeout: 10000,
 
         framework: 'cucumber',
         cucumberOpts: {
-            timeout: 20000,
+            timeout: 15000,
             require: [
                 './features/step_definitions/common.steps.js',
                 './features/step_definitions/google.steps.js'
